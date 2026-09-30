@@ -1,0 +1,12 @@
+🔩 Hardware Components
+
+        Component                     	Function
+
+📡 Ultrasonic Sensor	         Measures gate-to-wall distance
+🖥️ OLED Display	              Displays gate state and expressions
+🔴 Red LED	                     Indicates OPEN state
+🟢 Green LED	                 Indicates CLOSED state
+🔊 Buzzer	                     Provides OPEN-state audible feedback
+🔘 Control Switch                Enables/disables buzzer
+⚙️ Microcontroller (ESP 32)	     Processes sensor data and controls outputs
+🔌 Connecting Hardware	         Electrical connections between modules
