@@ -1,0 +1,23 @@
+ # Hardware Connections
+
+ESP32 DOIT DevKit V1 Pin Mapping
+
+Component	               Component Pin	      ESP32 GPIO	   Function
+
+HC-SR04 Ultrasonic	       TRIG                   GPIO 5	       Trigger signal
+	                       ECHO	                  GPIO 18	       Distance input
+
+0.96" OLED I²C	           SDA	                  GPIO 21	       I²C Data
+	                       SCL	                  GPIO 22	       I²C Clock
+	                       VCC	                  3.3V	           Power
+	                       GND	                  GND	           Ground
+
+Siren / Speaker	           Signal	              GPIO 25	       PWM audio
+
+Red LED	                   Anode                  GPIO 26	       Gate open/alarm
+
+Green LED	               Anode                  GPIO 27          Gate closed
+
+Power Switch	           Signal	              GPIO 33	       System ON/OFF
+
+All Components	           GND                    GND	           Common Ground
