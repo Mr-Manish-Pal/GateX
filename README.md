@@ -106,3 +106,79 @@ The complete system follows a simple embedded control pipeline:
         │             │
         ▼             ▼
    Buzzer 5 sec     No Buzzer
+
+   ---
+
+## 🧪 Testing & Validation
+
+GateX was tested under different gate positions and operating conditions to verify reliable state detection.
+
+### Test Cases
+
+| Test Condition | Expected State | LED | OLED | Buzzer |
+|---|---|---|---|---|
+| Gate within calibrated open range | OPEN | 🔴 Red | 😢 Sad | 🔊 Beep |
+| Gate beyond calibrated open range | CLOSED | 🟢 Green | 😊 Happy | 🔇 OFF |
+| Gate remains OPEN | OPEN | 🔴 Red | 😢 Sad | 🔊 Timed |
+| Silent Mode enabled | OPEN/CLOSED | Status LED active | OLED active | 🔇 Disabled |
+| Gate returns to CLOSED | CLOSED | 🟢 Green | 😊 Happy | 🔇 OFF |
+
+### Validation Goals
+
+- Accurate gate-state detection
+- Stable OPEN/CLOSED transitions
+- Correct OLED state indication
+- Correct LED status indication
+- Controlled buzzer timing
+- Silent Mode functionality
+- Reliable operation during repeated gate movement
+
+---
+
+## ⚙️ Calibration
+
+Ultrasonic-based detection depends on the physical installation position and distance between the sensor and the reference wall.
+
+Therefore, GateX uses a **calibrated distance threshold** rather than assuming one fixed physical installation.
+
+### Calibration Process
+
+1. Install GateX behind the gate.
+2. Point the ultrasonic sensor toward the reference wall.
+3. Measure the distance when the gate is considered **OPEN**.
+4. Measure the distance when the gate is considered **CLOSED**.
+5. Select an appropriate threshold.
+6. Test the system through multiple open/close cycles.
+7. Adjust the threshold if required.
+
+> Proper calibration improves reliability and reduces false state detection.
+
+---
+
+## 🧠 State-Based Control Logic
+
+GateX follows a simple state-machine approach.
+
+```text
+                 ┌───────────────┐
+                 │ Read Distance │
+                 └───────┬───────┘
+                         │
+                         ▼
+                ┌─────────────────┐
+                │ Compare with    │
+                │ calibrated      │
+                │ threshold       │
+                └────────┬────────┘
+                         │
+              ┌──────────┴──────────┐
+              │                     │
+              ▼                     ▼
+        ┌───────────┐         ┌───────────┐
+        │   OPEN    │         │  CLOSED   │
+        └─────┬─────┘         └─────┬─────┘
+              │                     │
+              ▼                     ▼
+        🔴 Red LED             🟢 Green LED
+        😢 Sad OLED            😊 Happy OLED
+        🔊 Buzzer              🔇 Buzzer OFF
