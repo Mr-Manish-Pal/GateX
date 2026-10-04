@@ -152,33 +152,3 @@ Therefore, GateX uses a **calibrated distance threshold** rather than assuming o
 7. Adjust the threshold if required.
 
 > Proper calibration improves reliability and reduces false state detection.
-
----
-
-## 🧠 State-Based Control Logic
-
-GateX follows a simple state-machine approach.
-
-```text
-                 ┌───────────────┐
-                 │ Read Distance │
-                 └───────┬───────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │ Compare with    │
-                │ calibrated      │
-                │ threshold       │
-                └────────┬────────┘
-                         │
-              ┌──────────┴──────────┐
-              │                     │
-              ▼                     ▼
-        ┌───────────┐         ┌───────────┐
-        │   OPEN    │         │  CLOSED   │
-        └─────┬─────┘         └─────┬─────┘
-              │                     │
-              ▼                     ▼
-        🔴 Red LED             🟢 Green LED
-        😢 Sad OLED            😊 Happy OLED
-        🔊 Buzzer              🔇 Buzzer OFF
