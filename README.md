@@ -377,31 +377,7 @@ These items are proposed improvements, not a list of features already implemente
 
 ---
 
-## 12 · Repository Structure
-
-Recommended structure:
-
-```text
-GateX/
-├── README.md
-├── src/
-│   └── GateX.ino
-├── docs/
-│   ├── architecture.md
-│   ├── wiring.md
-│   └── testing.md
-├── images/
-│   ├── gatex-overview.jpg
-│   ├── gatex-open-state.jpg
-│   └── gatex-closed-state.jpg
-└── LICENSE
-```
-
-Adapt the structure to the actual repository. Do not add links to files that have not been created.
-
----
-
-## 13 · Skills Demonstrated
+## 12 · Skills Demonstrated
 
 GateX provides practical exposure to:
 
@@ -418,7 +394,7 @@ These are the engineering areas demonstrated by the project; their depth should 
 
 ---
 
-## 14 · Author
+## 13 · Author
 
 **Manish Pal**  
 Aspiring Embedded Systems Engineer
